@@ -1,32 +1,58 @@
 #include <stdio.h>
+#include <string.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+int main() 
+{
+    // Variáveis do tipo string sendo declaradas
+    char peca_1[] = "rainha";
+    char peca_2[] = "bispo";
+    char peca_3[] = "torre";
+    char tipo[20];
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    // Variável do tipo inteiro sendo declarada para armazenar a quantidade de casa inserida
+    int casas;
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+   // Usuário escolhe qual peça deseja movimentar 
+    printf("Qual peca deseja movimentar?: ");
+    scanf("%s", tipo);
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    // Usuário insere a quantidade de casas a serem andadas (percorridas)
+    printf("Quantas casas deseja andar: ");
+    scanf("%d", &casas);
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // Implementação da lógica para realizar a movimentação das peças
+    if ((strcmp(tipo, peca_2) == 0 || strcmp(tipo, peca_3) == 0) && casas <= 5)
+    {
+        if (strcmp(tipo, peca_3) == 0)
+        {
+            for (int i = 1; i <= casas ; i++)
+            {
+            printf("%s andou %d casas para a direita\n", tipo, i);
+            }
+        } else 
+        {
+            for (int i = 1; i <= casas ; i++)
+            {
+            printf("%s andou %d casas para cima, direita\n", tipo, i);
+            }
+        }
+    }
+    else if ((strcmp(tipo, peca_1) == 0) && casas <= 8)
+    {
+        for (int i = 1; i <= casas ; i++)
+        {
+            printf("%s andou %d casas para a esquerda\n", tipo, i);
+        }
+    }
+    else 
+    {
+        printf("Quantidade de casas ou peca invalidas");
+    }
+    
 
     return 0;
 }
+
+
